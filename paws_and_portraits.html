@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paws & Portraits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #C9A87C;
+      --accent-light: #F5EDE0;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: rgba(0,0,0,0.1);
+      --bg: #ffffff;
+      --surface: #FAFAF8;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body { font-family: var(--sans); color: var(--text); background: var(--bg); font-size: 15px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 60px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.25rem; letter-spacing: 0.01em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 400; letter-spacing: 0.02em; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--text); color: #fff; border: none; padding: 8px 18px; border-radius: 2px; font-family: var(--sans); font-size: 13px; cursor: pointer; letter-spacing: 0.02em; transition: background 0.2s; }
+    .nav-cta:hover { background: #333; }
+
+    section { padding: 5rem 2.5rem; }
+    section:nth-child(even) { background: var(--surface); }
+
+    .hero { padding: 7rem 2.5rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: 85vh; }
+    .hero-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1.25rem; }
+    .hero h1 { font-family: var(--serif); font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 400; }
+    .hero p { font-size: 16px; color: var(--muted); line-height: 1.75; max-width: 400px; margin-bottom: 2rem; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; }
+    .btn-primary { background: var(--text); color: #fff; border: none; padding: 12px 24px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; cursor: pointer; border-radius: 2px; transition: background 0.2s; }
+    .btn-primary:hover { background: #333; }
+    .btn-ghost { background: none; border: 0.5px solid var(--border); color: var(--text); padding: 12px 24px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+    .btn-ghost:hover { border-color: var(--text); }
+    .hero-visual { aspect-ratio: 4/5; background: var(--accent-light); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .hero-visual svg { width: 120px; opacity: 0.35; }
+    .hero-badge { position: absolute; bottom: 1.5rem; left: 1.5rem; background: white; padding: 12px 16px; border-radius: 4px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    .hero-badge span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .hero-badge strong { font-size: 15px; font-weight: 500; }
+
+    .section-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 500; }
+    h2 { font-family: var(--serif); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1rem; line-height: 1.2; }
+    .section-intro { color: var(--muted); font-size: 15px; line-height: 1.75; max-width: 520px; font-weight: 300; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); margin-top: 3rem; border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .service-card { background: var(--bg); padding: 2rem 1.75rem; }
+    .service-icon { width: 36px; height: 36px; margin-bottom: 1.25rem; color: var(--accent); }
+    .service-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; font-weight: 300; }
+    .service-price { font-size: 13px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 6px; }
+    .service-price::before { content: ''; display: inline-block; width: 16px; height: 0.5px; background: var(--accent); }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+    .about-photo { aspect-ratio: 3/4; background: var(--accent-light); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+    .about-photo svg { width: 80px; opacity: 0.3; }
+    .about-content h2 { margin-bottom: 1.5rem; }
+    .about-content p { color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+    .about-stats { display: flex; gap: 2.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
+    .stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 400; display: block; }
+    .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 3rem; }
+    .portfolio-item { aspect-ratio: 1; background: var(--accent-light); border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .portfolio-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 300px; }
+    .portfolio-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .portfolio-placeholder svg { width: 40px; opacity: 0.25; }
+    .portfolio-item:first-child .portfolio-placeholder svg { width: 60px; }
+
+    .social-bar { display: flex; gap: 1rem; margin-top: 3rem; align-items: center; flex-wrap: wrap; }
+    .social-link { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border: 0.5px solid var(--border); border-radius: 2px; text-decoration: none; color: var(--text); font-size: 13px; transition: all 0.2s; cursor: pointer; }
+    .social-link:hover { border-color: var(--text); background: var(--surface); }
+    .social-link svg { width: 16px; height: 16px; }
+
+    .policies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .policy-card { border: 0.5px solid var(--border); border-radius: 4px; padding: 1.5rem; }
+    .policy-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 0.75rem; }
+    .policy-card ul { list-style: none; padding: 0; }
+    .policy-card li { font-size: 13px; color: var(--muted); padding: 5px 0; border-bottom: 0.5px solid var(--border); font-weight: 300; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+    .policy-card li::before { content: '—'; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+    .policy-card li:last-child { border-bottom: none; }
+
+    .intake-form { background: var(--bg); border: 0.5px solid var(--border); border-radius: 4px; padding: 2.5rem; max-width: 680px; margin-top: 3rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+    .form-group label { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .form-group input, .form-group select, .form-group textarea { border: 0.5px solid var(--border); border-radius: 2px; padding: 10px 12px; font-family: var(--sans); font-size: 14px; background: var(--surface); transition: border-color 0.2s; outline: none; color: var(--text); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--text); background: var(--bg); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-section-title { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 1.5rem 0 1rem; font-weight: 500; }
+    .form-submit { background: var(--text); color: #fff; border: none; padding: 13px 32px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; cursor: pointer; border-radius: 2px; margin-top: 0.5rem; transition: background 0.2s; width: 100%; }
+    .form-submit:hover { background: #333; }
+    .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
+    .checkbox-label { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); cursor: pointer; font-weight: 300; }
+    .checkbox-label input { width: 14px; height: 14px; accent-color: var(--text); cursor: pointer; }
+
+    footer { background: var(--text); color: rgba(255,255,255,0.6); padding: 3rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--serif); font-size: 1.1rem; color: white; }
+    footer p { font-size: 12px; }
+
+    .notice { background: var(--accent-light); border-left: 2px solid var(--accent); border-radius: 0 2px 2px 0; padding: 12px 16px; font-size: 13px; color: var(--muted); margin-top: 3rem; line-height: 1.6; font-weight: 300; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 4rem 1.5rem 3rem; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-item:first-child { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Paws & Portraits</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#policies">Policies</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('intake').scrollIntoView({behavior:'smooth'})">Book Now</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div>
+      <p class="hero-tag">Pet Care & Custom Art</p>
+      <h1>Care you can trust, <em>art</em> you'll love.</h1>
+      <p>Professional dog walking, pet sitting, and custom pet portraits — all from someone who genuinely loves animals.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('intake').scrollIntoView({behavior:'smooth'})">Book a service</button>
+        <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View portfolio</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Replace this div with an <img> tag for a real hero photo -->
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="55" rx="28" ry="22" fill="#C9A87C"/>
+        <circle cx="50" cy="35" r="16" fill="#C9A87C"/>
+        <ellipse cx="34" cy="27" rx="7" ry="10" fill="#C9A87C"/>
+        <ellipse cx="66" cy="27" rx="7" ry="10" fill="#C9A87C"/>
+        <circle cx="44" cy="35" r="3" fill="white" opacity="0.6"/>
+        <circle cx="56" cy="35" r="3" fill="white" opacity="0.6"/>
+        <ellipse cx="50" cy="40" rx="4" ry="2.5" fill="white" opacity="0.4"/>
+      </svg>
+      <div class="hero-badge">
+        <span>Serving</span>
+        <strong>Dogs & Cats</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-label">What I offer</p>
+    <h2>Services & Rates</h2>
+    <p class="section-intro">Every service is tailored to your pet's needs. Rates listed are starting prices — feel free to reach out for a custom quote.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c0-1.5.5-3 2-4s3-1.5 4-1 2.5 2.5 3 4 0 3.5-1.5 4.5-3.5 1-5 0S3 13.5 3 12z"/><path d="M18 8c1 0 2 .5 2 2s-1 2-2 2"/><path d="M5 18c-.5 1-1 2-1 3"/><path d="M11 19c0 1 .5 2 1 2s1-1 1-2"/><path d="M17 18c.5 1 1 2 1 3"/></svg>
+        <h3>Dog Walking</h3>
+        <p>30 or 60-minute walks with GPS tracking and post-walk updates.</p>
+        <span class="service-price">From $20/walk</span>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <h3>Pet Sitting</h3>
+        <p>In-home visits or overnight stays while you're away. Your pet stays comfy at home.</p>
+        <span class="service-price">From $35/visit</span>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <h3>Pet Art Commissions</h3>
+        <p>Custom digital or traditional portraits of your beloved pets. Makes a great gift.</p>
+        <span class="service-price">From $45/piece</span>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        <h3>Drop-in Visits</h3>
+        <p>Quick check-ins for feeding, litter, playtime, and a little extra love.</p>
+        <span class="service-price">From $18/visit</span>
+      </div>
+    </div>
+    <div class="notice">All rates may vary based on location, number of pets, or special needs. Contact me for a personalized quote.</div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" style="background: var(--surface);">
+    <p class="section-label">My work</p>
+    <h2>Portfolio</h2>
+    <p class="section-intro">A mix of walk photos and custom commissions. More on Instagram and TikTok.</p>
+    <div class="portfolio-grid">
+      <!-- Replace .portfolio-placeholder divs with <img> tags -->
+      <div class="portfolio-item">
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+      </div>
+      <div class="portfolio-item"><div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+      <div class="portfolio-item"><div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+      <div class="portfolio-item"><div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+      <div class="portfolio-item"><div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+    </div>
+    <!-- SOCIAL LINKS — update href values with real URLs -->
+    <div class="social-bar">
+      <a class="social-link" href="https://instagram.com/YOURHANDLE" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @yourhandle
+      </a>
+      <a class="social-link" href="https://tiktok.com/@YOURHANDLE" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        TikTok
+      </a>
+      <a class="social-link" href="https://twitter.com/YOURHANDLE" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l16 16M4 20L20 4"/></svg>
+        X / Twitter
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-photo">
+        <!-- Replace with: <img src="your-photo.jpg" alt="[Name]" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"> -->
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="38" r="20" fill="#C9A87C" opacity="0.5"/>
+          <path d="M15 85c0-19.33 15.67-35 35-35s35 15.67 35 35" fill="#C9A87C" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="about-content">
+        <p class="section-label">About me</p>
+        <h2>Hi, I'm [Name].</h2>
+        <p>I'm a lifelong animal lover based in [City] with a deep passion for caring for dogs and cats of all shapes and sizes. What started as helping neighbors became a full-time joy — and a business I'm proud of.</p>
+        <p>Whether I'm taking your pup on an adventure or painting their portrait from a reference photo, I bring genuine care and attention to every single interaction.</p>
+        <p>I'm fully insured, pet first-aid certified, and committed to keeping pet parents informed with updates throughout every service.</p>
+        <div class="about-stats">
+          <div>
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Years experience</span>
+          </div>
+          <div>
+            <span class="stat-num">50+</span>
+            <span class="stat-label">Happy clients</span>
+          </div>
+          <div>
+            <span class="stat-num">100+</span>
+            <span class="stat-label">Walks completed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICIES -->
+  <section id="policies" style="background: var(--surface);">
+    <p class="section-label">Good to know</p>
+    <h2>Policies</h2>
+    <p class="section-intro">Clear policies help keep things fair and stress-free for everyone.</p>
+    <div class="policies-grid">
+      <div class="policy-card">
+        <h3>Booking & Payment</h3>
+        <ul>
+          <li>Book at least 48 hours in advance</li>
+          <li>Payment due at time of service</li>
+          <li>Accepted: Venmo, Zelle, cash</li>
+          <li>New clients require a meet & greet first</li>
+        </ul>
+      </div>
+      <div class="policy-card">
+        <h3>Cancellations</h3>
+        <ul>
+          <li>Cancel 24hrs+ ahead: full refund</li>
+          <li>Cancel under 24hrs: 50% charge</li>
+          <li>Same-day cancellations: full charge</li>
+          <li>Emergencies handled case-by-case</li>
+        </ul>
+      </div>
+      <div class="policy-card">
+        <h3>Pet Requirements</h3>
+        <ul>
+          <li>Up-to-date vaccinations required</li>
+          <li>Flea & tick prevention must be current</li>
+          <li>Aggressive pets may be declined</li>
+          <li>All dogs must be on leash outdoors</li>
+        </ul>
+      </div>
+      <div class="policy-card">
+        <h3>Art Commissions</h3>
+        <ul>
+          <li>50% deposit required to start</li>
+          <li>2 rounds of revisions included</li>
+          <li>Turnaround: 1–3 weeks</li>
+          <li>Digital files delivered via email</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTAKE FORM -->
+  <section id="intake">
+    <p class="section-label">Get started</p>
+    <h2>Intake Form</h2>
+    <p class="section-intro">Fill this out and I'll get back to you within 24 hours to confirm your booking.</p>
+    <div class="intake-form">
+      <form onsubmit="handleSubmit(event)">
+
+        <p class="form-section-title">Owner information</p>
+        <div class="form-row">
+          <div class="form-group"><label>First name</label><input type="text" name="first_name" placeholder="Jane" required/></div>
+          <div class="form-group"><label>Last name</label><input type="text" name="last_name" placeholder="Smith" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="jane@email.com" required/></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(555) 000-0000"/></div>
+        </div>
+        <div class="form-group"><label>Address</label><input type="text" name="address" placeholder="Street address, city, zip"/></div>
+
+        <p class="form-section-title">Emergency contact</p>
+        <div class="form-row">
+          <div class="form-group"><label>Contact name</label><input type="text" name="emergency_name" placeholder="Full name"/></div>
+          <div class="form-group"><label>Relationship</label><input type="text" name="emergency_relationship" placeholder="e.g. Spouse, Parent"/></div>
+        </div>
+        <div class="form-group"><label>Emergency phone</label><input type="tel" name="emergency_phone" placeholder="(555) 000-0000"/></div>
+
+        <p class="form-section-title">Pet information</p>
+        <div class="form-row">
+          <div class="form-group"><label>Pet name</label><input type="text" name="pet_name" placeholder="Biscuit" required/></div>
+          <div class="form-group"><label>Species</label>
+            <select name="species"><option>Dog</option><option>Cat</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Breed</label><input type="text" name="breed" placeholder="e.g. Golden Retriever"/></div>
+          <div class="form-group"><label>Age</label><input type="text" name="age" placeholder="e.g. 3 years"/></div>
+        </div>
+
+        <p class="form-section-title">Veterinarian info</p>
+        <div class="form-row">
+          <div class="form-group"><label>Vet clinic name</label><input type="text" name="vet_name" placeholder="Paws Animal Clinic"/></div>
+          <div class="form-group"><label>Vet phone</label><input type="tel" name="vet_phone" placeholder="(555) 000-0000"/></div>
+        </div>
+
+        <p class="form-section-title">Vaccinations</p>
+        <div class="form-group">
+          <label>Current vaccinations (select all that apply)</label>
+          <div class="checkbox-group" style="margin-top:6px;">
+            <label class="checkbox-label"><input type="checkbox" name="vax_rabies"/> Rabies</label>
+            <label class="checkbox-label"><input type="checkbox" name="vax_dhpp"/> DHPP / FVRCP</label>
+            <label class="checkbox-label"><input type="checkbox" name="vax_bordetella"/> Bordetella (kennel cough)</label>
+            <label class="checkbox-label"><input type="checkbox" name="vax_flea"/> Flea & tick prevention (current)</label>
+            <label class="checkbox-label"><input type="checkbox" name="vax_heartworm"/> Heartworm prevention (current)</label>
+          </div>
+        </div>
+
+        <p class="form-section-title">Behavior & temperament</p>
+        <div class="form-group">
+          <label>How does your pet behave around strangers?</label>
+          <select name="behavior_strangers">
+            <option>Very friendly</option>
+            <option>Friendly but shy at first</option>
+            <option>Nervous / anxious</option>
+            <option>Can be reactive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How does your pet behave around other dogs/cats?</label>
+          <select name="behavior_animals">
+            <option>Loves other animals</option>
+            <option>Selective — depends on the animal</option>
+            <option>Prefers no contact</option>
+            <option>Can be reactive or aggressive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Any known fears or triggers?</label>
+          <textarea name="fears" placeholder="e.g. loud noises, bikes, hats..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Medical conditions or special needs</label>
+          <textarea name="medical" placeholder="Medications, allergies, mobility issues, etc."></textarea>
+        </div>
+
+        <p class="form-section-title">Service request</p>
+        <div class="form-group">
+          <label>Service(s) interested in</label>
+          <div class="checkbox-group" style="margin-top:6px;">
+            <label class="checkbox-label"><input type="checkbox" name="svc_walking"/> Dog walking</label>
+            <label class="checkbox-label"><input type="checkbox" name="svc_sitting"/> Pet sitting</label>
+            <label class="checkbox-label"><input type="checkbox" name="svc_dropin"/> Drop-in visit</label>
+            <label class="checkbox-label"><input type="checkbox" name="svc_art"/> Art commission</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Preferred start date</label><input type="date" name="start_date"/></div>
+          <div class="form-group"><label>Preferred time</label><input type="time" name="start_time"/></div>
+        </div>
+        <div class="form-group">
+          <label>Anything else I should know?</label>
+          <textarea name="notes" placeholder="Feeding schedule, quirks, where the treats are hidden..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Submit intake form</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Paws & Portraits</span>
+    <p>© 2025 · Made with love for animals</p>
+    <p>yourhandle@email.com</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Form submission placeholder
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your intake form has been submitted. I\'ll be in touch within 24 hours.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
