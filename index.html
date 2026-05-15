@@ -186,7 +186,7 @@
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#policies">Policies</a></li>
     </ul>
-    <button class="nav-cta" onclick="document.getElementById('intake').scrollIntoView({behavior:'smooth'})">Book Now</button>
+    <button class="nav-cta" onclick="document.getElementById('contact-modal').style.display='flex'">Book Now</button>
   </nav>
 
   <!-- HERO -->
@@ -196,7 +196,7 @@
       <h1>Care you can trust <em>and</em> art you'll love.</h1>
       <p>Professional dog walking, pet sitting, drop-in visits, and custom pet portraits — serving Malden, MA and surrounding areas.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="document.getElementById('intake').scrollIntoView({behavior:'smooth'})">Book a service</button>
+        <button class="btn-primary" onclick="document.getElementById('contact-modal').style.display='flex'">Book a service</button>
         <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View portfolio</button>
       </div>
     </div>
@@ -476,7 +476,7 @@
       </div>
     </div>
     <div class="social-bar">
-      <a class="social-link" href="#" target="_blank">
+      <a class="social-link" href="https://www.instagram.com/art.by.heatherd" target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         Instagram
       </a>
@@ -524,7 +524,7 @@
           <li>Book at least 48 hours in advance when possible</li>
           <li>Payment due at time of service</li>
           <li>Accepted: Venmo, Zelle, Cash</li>
-          <li>New clients must complete an Intake Form</li>
+          <li>New clients: reach out to get started</li>
         </ul>
       </div>
       <div class="policy-card">
@@ -556,7 +556,7 @@
     </div>
   </section>
 
-  <!-- INTAKE FORM -->
+  <!-- INTAKE FORM (commented out)
   <section id="intake">
     <p class="section-label">Get started</p>
     <h2>Intake Form</h2>
@@ -675,12 +675,37 @@
       </form>
     </div>
   </section>
+  -->
 
   <footer>
     <span class="footer-logo">Dynamik Pet Services</span>
     <p>© 2025 · Malden, MA · Made with love for animals</p>
     <p>yourhandle@email.com</p>
   </footer>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.45); align-items:center; justify-content:center; padding:1.5rem;">
+    <div style="background:#fff; border-radius:4px; padding:2.5rem; max-width:420px; width:100%; position:relative; border:0.5px solid var(--border);">
+      <button onclick="document.getElementById('contact-modal').style.display='none'" style="position:absolute; top:1rem; right:1.25rem; background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--muted);">✕</button>
+      <p class="section-label" style="margin-bottom:0.5rem;">Get in touch</p>
+      <h2 style="font-size:1.5rem; margin-bottom:0.5rem;">Book a service</h2>
+      <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:1.75rem; font-weight:300;">Reach out through any of the options below and I'll get back to you within 30 minutes.</p>
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <a href="tel:+17815555555" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <div><div style="font-weight:500;">Call or Text</div><div style="font-size:12px; color:var(--muted);">yourphone@number.com</div></div>
+        </a>
+        <a href="mailto:yourhandle@email.com" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div><div style="font-weight:500;">Email</div><div style="font-size:12px; color:var(--muted);">yourhandle@email.com</div></div>
+        </a>
+        <a href="https://www.instagram.com/art.by.heatherd" target="_blank" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <div><div style="font-weight:500;">Instagram</div><div style="font-size:12px; color:var(--muted);">@art.by.heatherd</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(a => {
