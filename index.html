@@ -54,9 +54,16 @@
     .hero-visual { aspect-ratio: 4/5; background: var(--accent-light); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
     .hero-visual svg { width: 120px; opacity: 0.35; }
     .hero-badge { position: absolute; bottom: 1.5rem; left: 1.5rem; background: white; padding: 12px 16px; border-radius: 4px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
-    @media (max-width: 768px) { .hero-badge { display: none; } }    .hero-badge span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-    .hero-badge strong { font-size: 15px; font-weight: 500; }
+    /* @media (max-width: 768px) { .hero-badge { display: none; } }    .hero-badge span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); } */
+    .hero-badge span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 
+    .hamburger { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text); padding: 4px 8px; }
+
+    @media (max-width: 768px) {
+      .hero-badge { display: none; }
+      .hamburger { display: block; }
+    .hero-badge strong { font-size: 15px; font-weight: 500; }
+    }
     /* TRUST BAR */
     .trust-bar { display: flex; gap: 0; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); background: var(--bg); }
     .trust-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem 1rem; border-right: 0.5px solid var(--border); text-align: center; }
@@ -193,10 +200,24 @@
       <li><a href="#portfolio">Artwork</a></li> -->
       
     </ul>
+    <!-- <button class="nav-cta" onclick="document.getElementById('contact-modal').style.display='flex'">Contact Me</button> -->
     <button class="nav-cta" onclick="document.getElementById('contact-modal').style.display='flex'">Contact Me</button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
     <!-- <button class="nav-cta" onclick="document.getElementById('contact-modal').style.display='flex'">Book Now</button> -->
   </nav>
-
+<!-- MOBILE MENU -->
+<div id="mobile-menu" style="display:none; position:fixed; inset:0; z-index:98; background:rgba(0,0,0,0.4);" onclick="toggleMenu()"></div>
+<div id="mobile-drawer" style="position:fixed; top:0; right:-100%; width:75%; max-width:300px; height:100%; background:#fff; z-index:99; transition:right 0.3s ease; padding:5rem 2rem 2rem; box-shadow:-4px 0 20px rgba(0,0,0,0.1);">
+  <button onclick="toggleMenu()" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--muted);">✕</button>
+  <ul style="list-style:none; display:flex; flex-direction:column; gap:0;">
+    <li><a href="#about" onclick="toggleMenu()" style="display:block; padding:1rem 0; text-decoration:none; color:var(--text); font-size:15px; font-weight:400; letter-spacing:0.02em; text-transform:uppercase; border-bottom:0.5px solid var(--border);">About</a></li>
+    <li><a href="#services" onclick="toggleMenu()" style="display:block; padding:1rem 0; text-decoration:none; color:var(--text); font-size:15px; font-weight:400; letter-spacing:0.02em; text-transform:uppercase; border-bottom:0.5px solid var(--border);">Services</a></li>
+    <li><a href="#reviews" onclick="toggleMenu()" style="display:block; padding:1rem 0; text-decoration:none; color:var(--text); font-size:15px; font-weight:400; letter-spacing:0.02em; text-transform:uppercase; border-bottom:0.5px solid var(--border);">Reviews</a></li>
+    <li><a href="#policies" onclick="toggleMenu()" style="display:block; padding:1rem 0; text-decoration:none; color:var(--text); font-size:15px; font-weight:400; letter-spacing:0.02em; text-transform:uppercase; border-bottom:0.5px solid var(--border);">Policies</a></li>
+    <li><a href="#portfolio" onclick="toggleMenu()" style="display:block; padding:1rem 0; text-decoration:none; color:var(--text); font-size:15px; font-weight:400; letter-spacing:0.02em; text-transform:uppercase;">Artwork</a></li>
+  </ul>
+  <button onclick="document.getElementById('contact-modal').style.display='flex'; toggleMenu();" style="margin-top:2rem; width:100%; background:var(--text); color:#fff; border:none; padding:13px; font-family:var(--sans); font-size:13px; letter-spacing:0.04em; cursor:pointer; border-radius:2px;">Contact Me</button>
+</div>
   <!-- HERO -->
   <section class="hero" id="home">
     <div>
@@ -804,6 +825,14 @@
   </div>
 
   <script>
+    function toggleMenu() {
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-menu');
+      const isOpen = drawer.style.right === '0px';
+      drawer.style.right = isOpen ? '-100%' : '0px';
+      overlay.style.display = isOpen ? 'none' : 'block';
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
