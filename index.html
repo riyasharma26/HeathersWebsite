@@ -200,12 +200,12 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div>
-      <p class="hero-tag">Pet Care & Custom Art · Malden, MA</p>
+      <!-- <p class="hero-tag">Pet Care & Custom Art · Malden, MA</p> -->
       <h1>Care you can trust <em>and</em> art you'll love.</h1>
-      <p>Professional dog walking, pet sitting, drop-in visits, and custom pet portraits — serving Malden, MA and surrounding areas.</p>
+      <p>Experienced and professional one-on-one private dog walking, drop-in visits, private pet sitting, grooming, and custom pet portraits — based out of Malden, MA and servicing surrounding areas.</p>
       <div class="hero-actions">
-        <button class="btn-primary" onclick="document.getElementById('contact-modal').style.display='flex'">Book a service</button>
-        <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View portfolio</button>
+        <button class="btn-primary" onclick="document.getElementById('contact-modal').style.display='flex'">Contact Me</button>
+        <button class="btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View Artwork</button>
       </div>
     </div>
     <div class="hero-visual">
@@ -252,12 +252,15 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <p class="section-label">What I offer</p>
+    <!-- <p class="section-label">What I offer</p> -->
     <h2>Services & Rates</h2>
-    <p class="section-intro">Every service is tailored to your pet's needs. Rates are for direct bookings — no platform fees.</p>
+    <!-- <p class="section-intro">Every service is tailored to your pet's needs. Rates are for direct bookings — no platform fees.</p> -->
+    <p class="section-intro">Contact me to schedule a complimentary meet and greet, to book a service, or if you have any questions. Standard services below can be customized to meet your needs. My standard service area is &lt;25 minutes from Malden, however if able, I'd be happy to service outside of this radius — additional travel fee would apply.</p>
+    <p class="section-intro" style="margin-top:0.75rem;">Gratuities are welcomed and appreciated but are not included in the rates below.</p>
+    <button class="btn-primary" style="margin-top:1.5rem;" onclick="document.getElementById('contact-modal').style.display='flex'">Contact Me</button>
     <div class="services-grid">
 
-      <div class="service-card">
+      <!-- <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c0-1.5.5-3 2-4s3-1.5 4-1 2.5 2.5 3 4 0 3.5-1.5 4.5-3.5 1-5 0S3 13.5 3 12z"/><path d="M18 8c1 0 2 .5 2 2s-1 2-2 2"/><path d="M5 18c-.5 1-1 2-1 3"/><path d="M11 19c0 1 .5 2 1 2s1-1 1-2"/><path d="M17 18c.5 1 1 2 1 3"/></svg>
         <h3>Dog Walking</h3>
         <p>30 or 60-minute walks around the neighborhood or on a favorite trail. Every walk includes photo updates.</p>
@@ -269,9 +272,24 @@
           <div class="rate-row"><span>Additional dog</span><span>+$30/walk</span></div>
           <div class="rate-row"><span>Puppy rate</span><span>$40/walk</span></div>
         </div>
-      </div>
+      </div> -->
 
       <div class="service-card">
+        <img src="images/walking.jpeg" alt="Dog Walking" style="width:100%; height:160px; object-fit:cover; border-radius:4px; margin-bottom:1.25rem;">
+        <h3>Dog Walking</h3>
+        <p>Private walks around your neighborhood. Weekly recurring scheduled walks are available. Every walk includes updates with photos.</p>
+        <!-- <span class="service-price">From $35/walk</span> -->
+        <div class="service-rates">
+          <p class="service-rates-title">Rate details</p>
+          <div class="rate-row"><span>30-minute</span><span>$35</span></div>
+          <div class="rate-row"><span>60-minute</span><span>$55</span></div>
+          <div class="rate-row"><span>Additional pet</span><span>+$10</span></div>
+          <div class="rate-row"><span>Puppy</span><span>+$5</span></div>
+          <div class="rate-row"><span>Holidays</span><span>+$15</span></div>
+        </div>
+      </div>
+
+      <!-- <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <h3>House Sitting</h3>
         <p>Overnight stays while you're away. Your pet stays comfy at home with full attention and daily updates.</p>
@@ -283,9 +301,25 @@
           <div class="rate-row"><span>Puppy rate</span><span>$149/night</span></div>
           <div class="rate-row"><span>Additional cat</span><span>+$99/night</span></div>
         </div>
-      </div>
+      </div> -->
 
       <div class="service-card">
+        <img src="images/dogsoncouch.jpeg" alt="House Sitting" style="width:100%; height:160px; object-fit:cover; border-radius:4px; margin-bottom:1.25rem;">
+        <h3>House Sitting</h3>
+        <p>Daily care including overnight stays while you're away. Pet is comfy in its own home following its regular routine. Multiple photo updates and check ins throughout the day. Grooming services optional while house sitting.</p>
+        <!-- <span class="service-price">From $124/night</span> -->
+        <div class="service-rates">
+          <p class="service-rates-title">Rate details</p>
+          <div class="rate-row"><span>Standard</span><span>$100/day</span></div>
+          <div class="rate-row"><span>Puppy/Kitten</span><span>$150/day</span></div>
+          <div class="rate-row"><span>Additional pet</span><span>+$50/day</span></div>
+          <div class="rate-row"><span>Holiday</span><span>+$50/day</span></div>
+          <div class="rate-row"><span>Constant Care</span><span>* Personalized Quote</span></div>
+          <div class="rate-row"><span>Grooming/nail trims</span><span>* Personalized Quote</span></div>
+        </div>
+      </div>
+
+      <!-- <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         <h3>Drop-In Visits</h3>
         <p>Quick check-ins for feeding, litter, playtime, and a little extra love. Add bathing or grooming too.</p>
@@ -299,9 +333,24 @@
           <div class="rate-row"><span>Additional cat</span><span>+$20/visit</span></div>
           <div class="rate-row"><span>Bathing / grooming</span><span>+$11</span></div>
         </div>
-      </div>
+      </div> -->
 
       <div class="service-card">
+        <img src="images/catseating.jpeg" alt="Drop-In Visits" style="width:100%; height:160px; object-fit:cover; border-radius:4px; margin-bottom:1.25rem;">
+        <h3>Drop-In Visits</h3>
+        <p>Drop-in to pet's home for check-ins, feedings, litter cleaning, yard time, administering medications, or to just provide a little extra love.</p>
+        <!-- <span class="service-price">From $35/visit</span> -->
+        <div class="service-rates">
+          <p class="service-rates-title">Rate details</p>
+          <div class="rate-row"><span>30-minute</span><span>$35</span></div>
+          <div class="rate-row"><span>60-minute</span><span>$55</span></div>
+          <div class="rate-row"><span>Additional pet</span><span>+$10</span></div>
+          <div class="rate-row"><span>Puppy/Kitten</span><span>+$5</span></div>
+          <div class="rate-row"><span>Holidays</span><span>+$15</span></div>
+        </div>
+      </div>
+
+      <!-- <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         <h3>Pet Art Commissions</h3>
         <p>Custom portraits of your beloved pets. A beautiful, personal keepsake to treasure.</p>
@@ -311,11 +360,22 @@
           <div class="rate-row"><span>50% deposit to start</span></div>
           <div class="rate-row"><span>Turnaround: 1–3 weeks</span></div>
         </div>
+      </div> -->
+
+      <div class="service-card">
+        <img src="images/happypup.jpeg" alt="Pet Art Commissions" style="width:100%; height:160px; object-fit:cover; border-radius:4px; margin-bottom:1.25rem;">
+        <h3>Pet Art Commissions</h3>
+        <p>Custom portraits of your beloved pets. A beautiful, personal keepsake to treasure.</p>
+        <!-- <span class="service-price">Contact for pricing</span> -->
+        <div class="service-rates">
+          <p class="service-rates-title">Rate details</p>
+          <div class="rate-row"><span>Portrait</span><span>* Personalized Quote</span></div>
+        </div>
       </div>
 
     </div>
 
-    <div style="margin-top: 2rem;">
+    <!-- <div style="margin-top: 2rem;">
       <p class="section-label" style="margin-bottom: 0.5rem;">Pet sizes accepted</p>
       <div class="sizes-row">
         <span class="size-tag">Cats</span>
@@ -326,7 +386,7 @@
       </div>
     </div>
 
-    <div class="notice">Rates are for direct bookings. Holiday rates apply on major holidays. Contact me for a personalized quote for multiple pets or special needs.</div>
+    <div class="notice">Rates are for direct bookings. Holiday rates apply on major holidays. Contact me for a personalized quote for multiple pets or special needs.</div> -->
   </section>
 
   <!-- ABOUT -->
@@ -340,11 +400,14 @@
         </svg>
       </div>
       <div class="about-content">
-        <p class="section-label">About me</p>
+        <!-- <p class="section-label">About me</p> -->
         <h2>Hi, I'm Heather!</h2>
-        <p>I'm a lifelong animal lover based in Malden, MA with a deep passion for caring for pets of all shapes and sizes. I grew up caring for my beloved dog of 15.5 years, and recently rescued a cat — animals have always been at the heart of my life.</p>
-        <p>I believe every pet deserves to receive the very best service. My golden rule is to treat every pet as if it were my own, providing the best quality care and attention I can. I pride myself on being a helpful resource for my clients' pet care needs and always keeping you in the loop while you're away.</p>
-        <p>I'm continuing my education with hopes of becoming a service animal trainer someday. Every dog is different, so whether it's an occasional walk or a regular routine, I work to build a relationship best suited to their needs.</p>
+        <p>Hi, I'm Heather. Before operating my mobile pet care business full-time, I worked in a grooming salon where I gained valuable hands-on experience working with pets of all sizes and temperaments.</p>
+        <p>I take pride in the ability to adapt my care to each pet's individual needs by offering private dog walking, pet sitting, and occasionally grooming services. My goal is to help them feel comfortable, safe, and loved while you're away.</p>
+        <p>As both an animal lover and a people person, I believe that great pet care starts with good communication and by building professional relationships. I value the trust and responsibilities that pet parents can share with me.</p>
+        <p>I have experience caring for senior pets, puppies or kittens, and animals with special needs.</p>
+        <p>I am First Aid certified and fully insured.</p>
+        <p>I'm also a trained artist that specializes in pet portraits and can offer custom paintings of you or your loved one's pet.</p>
 
         <div class="skills-list">
           <span class="skill-tag">First Aid & CPR certified</span>
@@ -355,7 +418,14 @@
           <span class="skill-tag">15+ years experience</span>
         </div>
 
-        <div class="about-stats">
+        <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; margin-top:1.5rem;">
+          <img src="images/petsitters-logo.png" alt="Pet Sitters Associates — Member and Insured" style="height:60px; object-fit:contain;">
+          <img src="images/redcross-logo.png" alt="American Red Cross" style="height:60px; object-fit:contain;">
+          <!-- NE Grooming Show cert — add when scanned: -->
+          <!-- <img src="images/negrooming-cert.png" alt="NE Grooming Show Certificate" style="height:60px; object-fit:contain;"> -->
+        </div>
+
+        <!-- <div class="about-stats">
           <div>
             <span class="stat-num">15+</span>
             <span class="stat-label">Years experience</span>
@@ -368,17 +438,57 @@
             <span class="stat-num">100%</span>
             <span class="stat-label">Response rate</span>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
 
   <!-- REVIEWS -->
   <section id="reviews">
-    <p class="section-label">What clients say</p>
+    <!-- <p class="section-label">What clients say</p> -->
     <h2>Reviews</h2>
-    <p class="section-intro">From first-time bookings to longtime regulars — here's what pet parents have to say.</p>
+    <!-- <p class="section-intro">From first-time bookings to longtime regulars — here's what pet parents have to say.</p> -->
+    <p class="section-intro" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">From first-time bookings to longtime regulars — here's what pet parents have to say.</p>
     <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Heather is amazing with our dogs! She is so patient and has taken the time to get to know their unique personalities and work with them! She walks them 3x a week and is always so good at communicating what time she will be there, and how the boys were with her. Highly recommend her for any of your pet care needs!"</p>
+        <p class="review-author">Catherine</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Heather was so great house sitting my dog and cat. She checked in to give regular updates and <strong>photos</strong> to let me know how they are, which made me feel at ease while away working. An added bonus is her talent as a dog groomer. She did an awesome job. I'll be scheduling her to take care of my boys for all my future trips."</p>
+        <p class="review-author">Rachael</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I have booked with Heather multiple times. She is very communicative and thorough, and always asks if there's anything else she can do. My cat Aspen loves the play time she gets when Heather visits. I feel much better being out of town knowing that Heather will look out for her."</p>
+        <p class="review-author">Rex</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Heather was amazing to work with! She was a huge help walking our dogs while we were away for four weeks. My dogs loved her and she was so kind, taking such good care of both our active 5 year old Frenchie and our senior Frenchie and sending <strong>great pictures and updates</strong> along the way. She's the best!"</p>
+        <p class="review-author">Trish</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"She is a great groomer! She is sweet, patient, calm and passionate, you can see that she loves doing what she does. My baby is a little grumpy with the nails cut and she was amazing about it. Besides she has all the professional equipment to do a great job. I highly recommend her as groomer!"</p>
+        <p class="review-author">Yesika</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Heather was so sweet!! She took the time to come by to meet me and my dog and was so willing to help! She made sure to keep me updated the whole time while I was away! Will definitely have Heather take care of my dog again!"</p>
+        <p class="review-author">Mia</p>
+      </div>
+
+    </div>
+    <!-- <div class="reviews-grid">
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
@@ -443,25 +553,15 @@
         <p class="review-meta">Dog Walking · Jun 2025</p>
       </div>
 
-    </div>
+    </div> -->
   </section>
 
   <!-- PORTFOLIO -->
   <section id="portfolio" style="background: var(--surface);">
-    <p class="section-label">My work</p>
-    <h2>Portfolio</h2>
+    <!-- <p class="section-label">My work</p> -->
+    <h2>Artwork</h2>
     <p class="section-intro">Find more on Instagram.</p>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <div class="portfolio-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <div class="portfolio-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        </div>
-      </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:3rem;">
       <div class="portfolio-item">
         <div class="portfolio-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -483,10 +583,42 @@
         </div>
       </div>
     </div>
+    <!-- <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C9A87C" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+      </div>
+    </div> -->
     <div class="social-bar">
       <a class="social-link" href="https://www.instagram.com/art.by.heatherd" target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        Instagram
+        @art.by.heatherd on Instagram
       </a>
     </div>
   </section>
@@ -522,26 +654,28 @@
 
   <!-- POLICIES -->
   <section id="policies" style="background: var(--surface);">
-    <p class="section-label">Good to know</p>
+    <!-- <p class="section-label">Good to know</p> -->
     <h2>Policies</h2>
     <p class="section-intro">Clear policies help keep things fair and stress-free for everyone.</p>
     <div class="policies-grid">
       <div class="policy-card">
         <h3>Booking & Payment</h3>
         <ul>
-          <li>Book at least 48 hours in advance when possible</li>
-          <li>Payment due at time of service</li>
-          <li>Accepted: Venmo, Zelle, Cash</li>
-          <li>New clients: reach out to get started</li>
+          <li>Payment will be due at time of booking confirmation</li>
+          <li>Accepted: Venmo (preferred) and Zelle</li>
+          <li>Short notice (less than 3 days): +$5 add on</li>
+          <li>New clients: Schedule a Meet & Greet to get started</li>
         </ul>
       </div>
       <div class="policy-card">
         <h3>Cancellations</h3>
         <ul>
-          <li>Cancel 24hrs+ ahead: full refund</li>
-          <li>Cancel under 24hrs: 50% charge</li>
-          <li>Same-day cancellations: full charge</li>
           <li>Emergencies handled case-by-case</li>
+          <li>Same day notice: non-refundable</li>
+          <li>Sitting services — less than 1 week notice: 50% refundable</li>
+          <li>Sitting services — more than 1 week notice: fully refundable</li>
+          <li>Walking & drop-in visits — less than 3 days notice: 50% refundable</li>
+          <li>Walking & drop-in visits — more than 3 days notice: fully refundable</li>
         </ul>
       </div>
       <div class="policy-card">
@@ -553,14 +687,14 @@
           <li>Please be open and honest about your pet's personality and any health conditions</li>
         </ul>
       </div>
-      <div class="policy-card">
+      <!-- <div class="policy-card">
         <h3>Art Commissions</h3>
         <ul>
           <li>50% deposit required to start</li>
           <li>Turnaround: 1–3 weeks</li>
           <li>Contact for pricing and availability</li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -686,22 +820,25 @@
   -->
 
   <footer>
-    <span class="footer-logo">Dynamik Pet Services</span>
+    <!-- <span class="footer-logo">Dynamik Pet Services</span> -->
+    <img src="images/logo.png" alt="Dynamik Pet Services" style="height:40px; display:block; opacity:0.85;">
     <p>© 2026 · Malden, MA · Made with love for animals</p>
-    <p>dynamikpetservices@gmail.com</p>
+    <div>
+      <p style="margin-bottom:4px;">(781) 281-9718</p>
+      <p>dynamikpetservices@gmail.com</p>
+    </div>
   </footer>
 
   <!-- CONTACT MODAL -->
   <div id="contact-modal" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.45); align-items:center; justify-content:center; padding:1.5rem;">
     <div style="background:#fff; border-radius:4px; padding:2.5rem; max-width:420px; width:100%; position:relative; border:0.5px solid var(--border);">
       <button onclick="document.getElementById('contact-modal').style.display='none'" style="position:absolute; top:1rem; right:1.25rem; background:none; border:none; font-size:1.25rem; cursor:pointer; color:var(--muted);">✕</button>
-      <p class="section-label" style="margin-bottom:0.5rem;">Get in touch</p>
-      <h2 style="font-size:1.5rem; margin-bottom:0.5rem;">Book a service</h2>
-      <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:1.75rem; font-weight:300;">Reach out through any of the options below and I'll get back to you as soon as possible!.</p>
-      <div style="display:flex; flex-direction:column; gap:0.75rem;">
-        <a href="tel:+17815555555" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
+      <!-- <p class="section-label" style="margin-bottom:0.5rem;">Get in touch</p> -->
+      <h2 style="font-size:1.5rem; margin-bottom:0.5rem;">Contact Info</h2>
+      <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:1.75rem; font-weight:300;">Reach out through any of the options below. Typical response time via text is &lt;1 hour.</p>      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <a href="tel:+17812819718" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          <div><div style="font-weight:500;">Call or Text</div><div style="font-size:12px; color:var(--muted);">PHONE NUM</div></div>
+          <div><div style="font-weight:500;">Call or Text <span style="font-size:11px; color:var(--accent); font-weight:400;">(Preferred)</span></div><div style="font-size:12px; color:var(--muted);">(781) 281-9718</div></div>
         </a>
         <a href="mailto:yourhandle@email.com" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
