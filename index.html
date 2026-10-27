@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- <title>Dynamik Pet Services<title> -->
+  <title>Dynamik Pet Services | Malden, MA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
@@ -38,8 +38,8 @@
     .nav-cta { background: var(--text); color: #fff; border: none; padding: 8px 18px; border-radius: 2px; font-family: var(--sans); font-size: 13px; cursor: pointer; letter-spacing: 0.02em; transition: background 0.2s; }
     .nav-cta:hover { background: #333; }
 
-    section { padding: 5rem 2.5rem; }
-    section:nth-child(even) { background: var(--surface); }
+    section { padding: 5rem 2.5rem; scroll-margin-top: 60px; }
+    section:nth-of-type(odd) { background: var(--surface); }
 
     /* HERO */
     .hero { padding: 3rem 2.5rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: auto; }
@@ -51,18 +51,14 @@
     .btn-primary:hover { background: #333; }
     .btn-ghost { background: none; border: 0.5px solid var(--border); color: var(--text); padding: 12px 24px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
     .btn-ghost:hover { border-color: var(--text); }
-    .hero-visual { aspect-ratio: 4/5; background: var(--accent-light); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .hero-visual { aspect-ratio: 1/1; background: var(--accent-light); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
     .hero-visual svg { width: 120px; opacity: 0.35; }
-    .hero-badge { position: absolute; bottom: 1.5rem; left: 1.5rem; background: white; padding: 12px 16px; border-radius: 4px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
-    /* @media (max-width: 768px) { .hero-badge { display: none; } }    .hero-badge span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); } */
-    .hero-badge span { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .hero-visual img { width: 85%; aspect-ratio: 1/1; object-fit: cover; border-radius: 4px; display: block; }
 
     .hamburger { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text); padding: 4px 8px; }
 
     @media (max-width: 768px) {
-      .hero-badge { display: none; }
       .hamburger { display: block; }
-    .hero-badge strong { font-size: 15px; font-weight: 500; }
     }
     /* TRUST BAR */
     .trust-bar { display: flex; gap: 0; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); background: var(--bg); }
@@ -77,7 +73,7 @@
     .section-intro { color: var(--muted); font-size: 15px; line-height: 1.75; max-width: 520px; font-weight: 300; }
 
     /* SERVICES */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); margin-top: 3rem; border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin-top: 3rem; border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; }
     .service-card { background: var(--bg); padding: 2rem 1.75rem; }
     .service-icon { width: 36px; height: 36px; margin-bottom: 1.25rem; color: var(--accent); }
     .service-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.5rem; }
@@ -86,8 +82,10 @@
     .service-price::before { content: ''; display: inline-block; width: 16px; height: 0.5px; background: var(--accent); }
     .service-rates { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 0.5px solid var(--border); }
     .service-rates-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; font-weight: 500; }
-    .rate-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); padding: 3px 0; font-weight: 300; }
-    .rate-row span:last-child { font-weight: 400; color: var(--text); }
+    .rate-row { display: flex; flex-wrap: wrap; column-gap: 1rem; justify-content: space-between; font-size: 12px; color: var(--muted); padding: 3px 0; font-weight: 300; }
+    .rate-row span:last-child { font-weight: 400; color: var(--text); margin-left: auto; text-align: right; }
+    @media (max-width: 1023px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
 
     /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
@@ -103,7 +101,9 @@
     .skill-tag { font-size: 12px; padding: 5px 12px; border: 0.5px solid var(--border); border-radius: 2px; color: var(--muted); font-weight: 300; letter-spacing: 0.02em; }
 
     /* REVIEWS */
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+    @media (max-width: 1023px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .reviews-grid { grid-template-columns: 1fr; } }
     .review-card { border: 0.5px solid var(--border); border-radius: 4px; padding: 1.5rem; background: var(--bg); }
     .review-stars { color: var(--accent); font-size: 12px; letter-spacing: 2px; margin-bottom: 0.75rem; }
     .review-text { font-size: 14px; color: var(--text); line-height: 1.7; font-weight: 300; margin-bottom: 1rem; font-style: italic; }
@@ -113,6 +113,7 @@
     /* PORTFOLIO */
     .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 3rem; }
     .portfolio-item { aspect-ratio: 1; background: var(--accent-light); border-radius: 4px; overflow: hidden; position: relative; cursor: pointer; }
+    .art-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 3rem; }
     .portfolio-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
     .portfolio-placeholder svg { width: 40px; opacity: 0.25; }
     .portfolio-item:first-child .portfolio-placeholder svg { width: 60px; }
@@ -166,10 +167,13 @@
     .size-tag { font-size: 12px; padding: 4px 12px; border: 0.5px solid var(--border); border-radius: 2px; color: var(--muted); font-weight: 300; }
 
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding: 4rem 1.5rem 3rem; }
-      .hero-visual { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 4rem 1.5rem 3rem; gap: 2.5rem; }
+      .hero-visual { aspect-ratio: auto; background: none; }
+      .hero-visual img { width: 100%; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .about-photo { display: none; }
+      .about-photo { aspect-ratio: 4/5; }
+      .nav-cta { margin-left: auto; margin-right: 0.75rem; }
+      .art-grid { grid-template-columns: repeat(2, 1fr); }
       .form-row { grid-template-columns: 1fr; }
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
@@ -241,11 +245,7 @@
         <ellipse cx="50" cy="40" rx="4" ry="2.5" fill="white" opacity="0.4"/>
       </svg>
       -->
-<img src="images/collage.png" alt="Pets we care for" style="width:85%; height:85%; object-fit:cover; border-radius:4px;">    </div>
-      <div class="hero-badge">
-        <span>Serving</span>
-        <strong>Dogs & Cats</strong>
-      </div>
+      <img src="images/collage.jpg" alt="Pets we care for">
     </div>
   </section>
 
@@ -273,7 +273,7 @@
     </div>
   </div> -->
   <!-- ABOUT -->
-  <section id="about" style="background: var(--surface);">
+  <section id="about">
     <div class="about-grid">
       <div class="about-photo">
         <!-- <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -298,8 +298,8 @@
           <span class="skill-tag">Senior dog experience</span>
           <span class="skill-tag">Special needs experience</span>
           <span class="skill-tag">Daily exercise</span>
-          <span class="skill-tag">15+ years experience</span> -->
-        </div>
+          <span class="skill-tag">15+ years experience</span>
+        </div> -->
 
         <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; margin-top:1.5rem;">
           <img src="images/petsitters-logo.png" alt="Pet Sitters Associates — Member and Insured" style="height:60px; object-fit:contain;">
@@ -359,7 +359,7 @@
         <!-- <span class="service-price">From $124/night</span> -->
         <div class="service-rates">
           <p class="service-rates-title">Rate details</p>
-          <div class="rate-row"><span>Standard</span><span>$100/day</span></div>
+          <div class="rate-row"><span>Standard</span><span>$110/day</span></div>
           <div class="rate-row"><span>Puppy/Kitten</span><span>$150/day</span></div>
           <div class="rate-row"><span>Additional pet</span><span>+$50/day</span></div>
           <div class="rate-row"><span>Holiday</span><span>+$50/day</span></div>
@@ -386,7 +386,7 @@
 
 
       <div class="service-card">
-        <img src="images/placeholder.md" alt="Pet Art Commissions" style="width:100%; height:160px; object-fit:cover; border-radius:4px; margin-bottom:1.25rem;">
+        <img src="images/petportrait.jpg" alt="Pet Art Commissions — custom dog portrait" style="width:100%; height:160px; object-fit:cover; object-position:center 40%; border-radius:4px; margin-bottom:1.25rem;">
         <h3>Pet Art Commissions</h3>
         <p>Custom portraits of your beloved pets. A beautiful, personal keepsake to treasure.</p>
         <!-- <span class="service-price">Contact for pricing</span> -->
@@ -419,7 +419,7 @@
     <!-- <p class="section-label">What clients say</p> -->
     <h2>Reviews</h2>
     <!-- <p class="section-intro">From first-time bookings to longtime regulars — here's what pet parents have to say.</p> -->
-    <p class="section-intro" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">From first-time bookings to longtime regulars — here's what pet parents have to say.</p>
+    <p class="section-intro" style="max-width:none;">From first-time bookings to longtime regulars — here's what pet parents have to say.</p>
     <div class="reviews-grid">
 
       <div class="review-card">
@@ -527,7 +527,7 @@
     </div> -->
   </section>
 <!-- POLICIES -->
-<section id="policies" style="background: var(--surface);">
+<section id="policies">
   <!-- <p class="section-label">Good to know</p> -->
   <h2>Policies</h2>
   <p class="section-intro">Clear policies help keep things fair and stress-free for everyone.</p>
@@ -572,11 +572,11 @@
   </div>
 </section>
   <!-- PORTFOLIO -->
-  <section id="portfolio" style="background: var(--surface);">
+  <section id="portfolio">
     <!-- <p class="section-label">My work</p> -->
     <h2>Artwork</h2>
     <p class="section-intro">Find more on Instagram.</p>
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:3rem;">
+    <div class="art-grid">
       <div class="portfolio-item">
         <img src="images/instagram1.jpg" alt="Pet portrait 1" style="width:100%; height:100%; object-fit:cover;">
       </div>
@@ -784,7 +784,7 @@
 
   <footer>
     <!-- <span class="footer-logo">Dynamik Pet Services</span> -->
-    <img src="images/logo.png" alt="Dynamik Pet Services" style="height:40px; display:block; opacity:0.85;">
+    <img src="images/logo.png" alt="Dynamik Pet Services" style="height:56px; display:block; background:#fff; padding:6px; border-radius:6px;">
     <p>© 2026 · Malden, MA · Made with love for animals</p>
     <div>
       <p style="margin-bottom:4px;">(781) 281-9718</p>
@@ -803,7 +803,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.66-.66a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           <div><div style="font-weight:500;">Call or Text <span style="font-size:11px; color:var(--accent); font-weight:400;">(Preferred)</span></div><div style="font-size:12px; color:var(--muted);">(781) 281-9718</div></div>
         </a>
-        <a href="mailto:yourhandle@email.com" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
+        <a href="mailto:dynamikpetservices@gmail.com" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border:0.5px solid var(--border); border-radius:2px; text-decoration:none; color:var(--text); font-size:14px; transition:all 0.2s;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           <div><div style="font-weight:500;">Email</div><div style="font-size:12px; color:var(--muted);">dynamikpetservices@gmail.com</div></div>
         </a>
